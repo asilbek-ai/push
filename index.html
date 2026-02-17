@@ -1,92 +1,49 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <title>Checkout</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+    <meta charset="UTF-8" />
+    <title>SUBWAY SUPER HOPPER GAME | @coding.stella</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=VT323&amp;display=swap" />
+    <link rel="stylesheet" href="./style.css" />
 </head>
-<body class="min-h-screen bg-[#e6dcd0] flex items-center justify-center p-4">
 
-  <div class="w-full max-w-6xl grid lg:grid-cols- gap-10">
+<body>
+    <div id="game-container"></div>
 
-    <div class="bg-white/40 backdrop-blur-md rounded-3xl p-6 shadow-lg">
-      <h2 class="text-2xl font-semibold text-center mb-6">
-        Сумма заказов
-      </h2>
-
-      <div class="space-y-4 text-sm sm:text-base">
-
-        <div class="flex justify-between">
-          <span>Общая сумма заказов:</span>
-          <span class="font-semibold">5 400 грн</span>
+    <div id="ui-layer">
+        <div id="score-display" class="hidden">
+            SCORE: <span id="score">0</span>
+        </div>
+        <div id="instructions">
+            STEPS:<br />
+            <span class="key">←</span> <span class="key">→</span> MOVE<br />
+            <span class="key">↑</span> JUMP
         </div>
 
-        
-
-        <div>
-          <p class="mb-2 font-medium">Доставка:</p>
-          <div class="space-y-2">
-            <label class="flex items-center gap-2">
-              <input type="radio" name="delivery" class="accent-pink-500" checked>
-              Самовывоз
-            </label>
-            <label class="flex items-center gap-2">
-              <input type="radio" name="delivery" class="accent-pink-500">
-              Курьером
-            </label>
-          </div>
+        <div id="start-screen" class="center-screen">
+            <h1 class="title">SUPER HOPPER</h1>
+            <p class="subtitle">MY CUTE ADVENTURE</p>
+            <button id="start-btn">PRESS START</button>
         </div>
 
-        <div class="flex justify-between">
-          <span>Скидка:</span>
-          <span class="text-pink-600 font-medium">-10%</span>
+        <div id="game-over-screen" class="center-screen hidden">
+            <h1 class="title">GAME OVER</h1>
+            <p class="subtitle">SCORE: <span id="final-score">0</span></p>
+            <button id="restart-btn">TRY AGAIN</button>
         </div>
-
-        <div class="flex justify-between text-lg font-bold text-green-600">
-          <span>Итого к оплате:</span>
-          <span>5 130 грн</span>
-        </div>
-
-      </div>
     </div>
 
-    <div class="flex flex-col justify-center">
-      <h2 class="text-3xl sm:text-4xl font-semibold text-center mb-6">
-        Оформление заказа
-      </h2>
+    <!-- Scripts -->
+    <!-- Using ES Modules for Three.js -->
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@0.160.0/build/three.module.js"
+        }
+      }
+    </script>
 
-      <div class="flex justify-center gap-8 mb-8 text-sm sm:text-base">
-        <button class="border-b-2 border-pink-500 pb-1">
-          Новый покупатель
-        </button>
-        <button class="text-gray-500 hover:text-black">
-          Постоянный покупатель
-        </button>
-      </div>
-
-      <form class="space-y-4 w-full max-w-md mx-auto">
-
-        <input type="text"
-          placeholder="Имя"
-          class="w-full rounded-full px-5 py-3 bg-white/70 focus:outline-none focus:ring-2 focus:ring-pink-400">
-
-        <input type="tel"
-          placeholder="Телефон"
-          class="w-full rounded-full px-5 py-3 bg-white/70 focus:outline-none focus:ring-2 focus:ring-pink-400">
-
-        <input type="text"
-          placeholder="Адрес доставки"
-          class="w-full rounded-full px-5 py-3 bg-white/70 focus:outline-none focus:ring-2 focus:ring-pink-400">
-
-        <button
-          class="w-full bg-pink-500 hover:bg-pink-600 text-white py-3 rounded-full font-medium transition duration-300">
-          Подтверждение заказа
-        </button>
-
-      </form>
-    </div>
-
-  </div>
-
+    <script type="module" src="./script.js"></script>
 </body>
 </html>
